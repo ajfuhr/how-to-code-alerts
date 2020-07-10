@@ -28,7 +28,7 @@ Now, don't be too scared. HTML is a fairly straightforward markup language made 
 </span>
 ```
 
-As you can see, each element has a open tag and an closing tag, with contents *nested* inside of them. Opening tags begin with a '<' and end with a '>', with their keyword inbetween. End tags begin with a '</' and end with a '>', with the same keyword inbetween, and the forward slash denoting that it is a closing tag.
+As you can see, each element has a opening tag and an closing tag, with contents *nested* inside of them. Opening tags begin with a '<' and end with a '>', with their keyword inbetween. Closing tags begin with a '</' and end with a '>', with the same keyword inbetween, the forward slash denoting that it is a closing tag.
 
 We can even get crazy and nest tags within tags:
 
@@ -46,7 +46,7 @@ In the Layers tab to the left, select the AlertBox widget, then go to the "Posit
 
 In the Settings tab, click the gear icon to the right of the Follower alert type. Clear the default image/video and sound files, then scroll down to the "Animation length" parameter. Make this '5.5s', which will be the total time it takes for our custom alerts to play.
 
-Finally, toggle the "Enable Custom CSS" option to on, then click "Open CSS Editor" and make your best, "What in the hell does this mean" face.
+Finally, toggle the "Enable Custom CSS" option to on, then click "Open CSS Editor" and make your best "what in the hell does this mean" face.
 
 This view has four tabs: HTML, CSS, JS, and Fields. HTML will be our focus for now. Click that tab, select all of the HTML code within it and press your delete key. We don't want any of that stuff because we're going to write our own!
 
@@ -66,7 +66,7 @@ This div tag, or "division" of the HTML document, will house all of our alert in
 </div>
 ```
 
-We have a div, and it's id is "alert"! It needs some more stuff, though, if we're to use this as a base for our custom alerts. It needs *children*.
+We have a div, and its id is "alert"! It needs some more stuff, though, if we're to use this as a base for our custom alerts. It needs *children*.
 
 Child elements are elements that are nested within another element. In our nesting example from before, the span element was the child of the div:
 
@@ -107,3 +107,28 @@ We need one more thing for StreamElements to populate our new follower's name: a
 ```
 
 There. The bones for our custom Follower alert are in place. Now we can begin the fun part: styling and animating the whole thing!
+
+Part II: CSS
+------------
+
+CSS stands for Cascading Style Sheets. It is a way for web developers to describe *how* HTML elements should look when the web page is rendered. Just so you don't feel lost or overwhelmed, we'll dive into a quick overview of CSS syntax.
+
+CSS has three parts:
+
+- Selectors
+- Attributes
+- Values
+
+A *selector* tells the browser which element you'd like to change, an *attribute* tells the browser what part of the element you want to change, and a *value* assigns the exact description you want to convey to the browser for that specific attribute. If we wanted all div elements to be 800 pixels by 800 pixels with a black background, we'd write it like this:
+
+```
+div {
+  width: 800px;
+  height: 800px;
+  background: #000000;
+}
+```
+
+Selectors are followed by a set of curly braces ({ and }), then, nested inside of those braces, are our attributes (width, height, background), and each attribute is followed by a colon (:), a space, then its value, ultimately ending each line with a semi-colon (;).
+
+
