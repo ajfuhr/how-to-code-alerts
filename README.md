@@ -185,11 +185,15 @@ We define animations by using the '@keyframes' keyword, followed by the animatio
 }
 ```
 
-Test it out again by triggering a Follower event in the StreamElements overlay editor. A slate black rectangle, 400x100, will slide out from center left, wait, then slide back off screen. Let's finish up by defining how we want our alert-type text ("Follower") and the user's name to appear.
+Test it out again by triggering a Follower event in the StreamElements overlay editor. A slate black rectangle, 400x100, will slide out from center left, wait, then slide back off screen. 
 
-I'm thinking fades. Fades are cool. To start, we'll define the #alert-type and #alert-information elements, along with their animation properties. Brace yourself for a big block of CSS:
+Let's finish up by defining how we want our alert-type text ("Follower") and the user's name to appear. I'm thinking fades. Fades are cool. We'll also need a font to work with that applies to everything. To start, we'll define the font to be rendered by using the * selector (it selects every element on the page), then jump into the #alert-type and #alert-information elements, along with their animation properties. Brace yourself for a big block of CSS:
 
 ```
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #alert-type {
   display: flex;
   position: absolute;
@@ -279,4 +283,4 @@ Within OBS, create a browser source within any scene you want these alerts to pl
 In Closing
 ----------
 
-I know, these alerts are basic as hell, but if you really want to dive into this, you can do some amazing stuff! Learn more about HTML and CSS, specifically CSS animations and HTML img tags, and you can really go wild! Let me know what you create with this, as well!
+I know, these alerts are basic as hell, but if you really want to dive into this, you can do some amazing stuff! Learn more about HTML and CSS, specifically CSS animations and element positioning, and you can really go wild! Let me know what you create with this, as well!
