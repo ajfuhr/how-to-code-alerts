@@ -139,7 +139,7 @@ Let's start describing our main element, the alert div. We can use an id selecto
 }
 ```
 
-We want this element to be a block, placed in a specific spot with specific dimensions, and animated to slide into view the moment an alert is triggered. Go line by line and try to understand what's going on in the following code block:
+We want this element to be a block, placed in a specific spot with specific dimensions, and animated to slide into view the moment an alert is triggered, then slide back out of view. Go line by line and try to understand what's going on in the following code block:
 
 ```
 #alert {
@@ -184,3 +184,99 @@ We define animations by using the '@keyframes' keyword, followed by the animatio
   }
 }
 ```
+
+Test it out again by triggering a Follower event in the StreamElements overlay editor. A slate black rectangle, 400x100, will slide out from center left, wait, then slide back off screen. Let's finish up by defining how we want our alert-type text ("Follower") and the user's name to appear.
+
+I'm thinking fades. Fades are cool. To start, we'll define the #alert-type and #alert-information elements, along with their animation properties. Brace yourself for a big block of CSS:
+
+```
+#alert-type {
+  display: flex;
+  position: absolute;
+  width: 400px;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #00acff;
+  font-size: 20pt;
+  font-weight: 600;
+  opacity: 0.0;
+
+  animation: fade-in 0.5s forwards, fade-out 0.5s forwards;
+  animation-delay: 0.5s, 2.5s;
+}
+
+#alert-information {
+  display: flex;
+  position: absolute;
+  width: 400px;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 18pt;
+  font-weight: 300;
+  color: #ffffff;
+  opacity: 0.0;
+
+  animation: fade-in 0.5s forwards, fade-out 0.5s forwards;
+  animation-delay: 2.5s, 4.5s;
+}
+```
+
+What we've done is place two 400x100 blocks on top of each other, centered everything horizontall and vertically, set font sizes, boldness, and color, and then... made it all invisible with the 'opacity: 0.0' attribute. We don't want to see this the second the alert is triggered, so we add in the fade-in and fade-out animations with 'animation-delay' properties set to make it all seem very fluid.
+
+Let's define those animations now:
+
+```
+@keyframes fade-in {
+  0% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1.0;
+  }
+
+  100% {
+    opacity: 0.0;
+    display: none;
+  }
+}
+```
+
+There! Save your work and trigger a test Follower event. The #alert div should slide in, "Follower" will fade in and out, and then the user's name will do the same, with the #alert div sliding out just as the user's name fades away.
+
+That's it for the CSS portion! Save your overlay and let's head over to OBS!
+
+Part III: Adding Other Alert Types
+----------------------------------
+
+Within this repo, you will see a 'src' directory. Within it, there are HTML files for each alert type in StreamElements save for merchandising alerts. I never use them, so never coded them, but you can easily add that in. Repeat what you did for the Follower alert by copying the HTML for each alert type into the editor. Remember to enable custom CSS and set each animation length in StreamElements to 5.5s. Make sure the CSS is attached to each alert type as well. I've left the full CSS code in the 'src/css' folder under 'alerts.css' for easy copying and pasting.
+
+Some alert types, like cheers, re-subs, bits, hosts, and raids, will have a separate span element in them with and id of "amount-container" where StreamElements puts things like bit amounts, host/raid amounts, sub length, etc. Make sure you're pulling from the right source file when updating these!
+
+Part III: OBS Setup
+-------------------
+
+Within OBS, create a browser source within any scene you want these alerts to play, copy the StreamElements URL for the overlay we just created, and paste it into the browser source's URL. Set the dimensions to 1920x1080, and make sure to check the box next to "shut down this source when inactive". You're all set!
+
+In Closing
+----------
+
+I know, these alerts are basic as hell, but if you really want to dive into this, you can do some amazing stuff! Learn more about HTML and CSS, specifically CSS animations and HTML img tags, and you can really go wild! Let me know what you create with this, as well!
