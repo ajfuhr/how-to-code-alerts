@@ -131,4 +131,56 @@ div {
 
 Selectors are followed by a set of curly braces ({ and }), then, nested inside of those braces, are our attributes (width, height, background), and each attribute is followed by a colon (:), a space, then its value, ultimately ending each line with a semi-colon (;).
 
+Let's start describing our main element, the alert div. We can use an id selector to tell the browser we only want to describe a *single* element. Id selectors in CSS start with a pound or hash symbol (#), and are followed by the HTML id for the element you want to change with no space inbetween:
 
+```
+#alert {
+
+}
+```
+
+We want this element to be a block, placed in a specific spot with specific dimensions, and animated to slide into view the moment an alert is triggered. Go line by line and try to understand what's going on in the following code block:
+
+```
+#alert {
+  display: block;
+  position: absolute;
+  width: 400px;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  top: 490px;
+  left: -400px;
+  background: #333333;
+  opacity: 1.0;
+
+  animation: slide-in 0.5s forwards, slide-out 0.5s forwards;
+  animation-delay: 0s, 5s;
+}
+```
+
+Essentially, we're hiding it off the bat. The attribute "left: -400px" pushes it 400 pixels off the left-most boundry of the rendered area, which matches our alert's width. We're then animating it as soon as it is rendered to slide in, waiting five seconds, then sliding it off the screen to its original location. If you go to the CSS tab within StreamElements, delete all of the default CSS, paste in the above code block, then trigger a test event for the Follower alert... nothing will happen because we haven't defined these animations yet.
+
+We define animations by using the '@keyframes' keyword, followed by the animation name we provided in the 'animation' attribute above. Let's define our slide in and slide out animations underneath the closing curly brace from the above code block:
+
+```
+@keyframes slide-in {
+  0% {
+    left: -400px;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: -400px;
+  }
+}
+```
