@@ -237,7 +237,7 @@ Let's finish up by defining how we want our alert-type text ("Follower") and the
 }
 ```
 
-What we've done is place two 400x100 blocks on top of each other, centered everything horizontall and vertically, set font sizes, boldness, and color, and then... made it all invisible with the 'opacity: 0.0' attribute. We don't want to see this the second the alert is triggered, so we add in the fade-in and fade-out animations with 'animation-delay' properties set to make it all seem very fluid.
+What we've done is place two 400x100 blocks on top of each other, centered everything horizontally and vertically, set font sizes, boldness, and color, and then... made it all invisible with the 'opacity: 0.0' attribute. We don't want to see this the second the alert is triggered, so we add in the fade-in and fade-out animations with 'animation-delay' properties set to make it all seem very fluid.
 
 Let's define those animations now:
 
