@@ -275,7 +275,7 @@ Within this repo, you will see a 'src' directory. Within it, there are HTML file
 
 Some alert types, like cheers, re-subs, bits, hosts, and raids, will have a separate span element in them with and id of "amount-container" where StreamElements puts things like bit amounts, host/raid amounts, sub length, etc. Make sure you're pulling from the right source file when updating these!
 
-Part III: OBS Setup
+Part IV: OBS Setup
 -------------------
 
 Within OBS, create a browser source within any scene you want these alerts to play, copy the StreamElements URL for the overlay we just created, and paste it into the browser source's URL. Set the dimensions to 1920x1080, and make sure to check the box next to "shut down this source when inactive". You're all set!
